@@ -1,0 +1,37 @@
+<%= simple_form_for(@post) do |f| %>
+<% if @post.errors.any? %>
+<% @post.errors.full_messages.each do |msg| %>
+<div class="errors">
+<%= msg %>
+</div>
+<% end %>
+
+<% end %>
+<div class="write-post">
+  <div id="header">
+    <%= f.text_field :title, placeholder: "Title", class: "write-post", :autocomplete => :off %>
+  </div>
+  <div id="body">
+    <%= f.text_area :body, placeholder: "This thing isn't going to write itself", class: "write-post", :id => "body", :autocomplete => :off, :cols => "30" %>
+  </div>
+
+
+
+  <% if @post.publish == true %>
+  <% then %>
+  <%= f.radio_button :publish, "0", :id=>"s1Off", :style=>"display:none;" %>
+  <label for="s1Off" class="switch switch--off" >Draft</label>
+
+  <%= f.radio_button :publish, "1", :id=>"s1On", :style=>"display:none;", :checked => true %>
+  <label for="s1On" class="switch switch--on">Publish</label>
+  <% else %>
+  <%= f.radio_button :publish, "0", :id=>"s1Off", :style=>"display:none;", :checked => true %>
+  <label for="s1Off" class="switch switch--off" >Draft</label>
+
+  <%= f.radio_button :publish, "1", :id=>"s1On", :style=>"display:none;" %>
+  <label for="s1On" class="switch switch--on">Publish</label>
+  <% end %>
+  <%= f.button :submit, 'Done', class: "post-button" %>
+</div>
+
+<% end %>

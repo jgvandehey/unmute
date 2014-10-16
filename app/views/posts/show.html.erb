@@ -1,0 +1,19 @@
+  <div class="write-post">
+  	<div id="header">
+  		<%= @post.title %>
+  	</div>
+  	<div id="body">
+  		<%= simple_format(@post.body, id: 'body') %>
+  	</div>
+  </div>
+
+  <div class="row">
+    <div class="span6 offset3">
+        <div class="well">
+            <% if current_user == @post.user %>
+                <%= link_to 'Edit', edit_post_path(@post) %> |
+            <% end %>
+            <%= link_to 'Back', posts_path %>
+        </div>
+    </div>
+</div>

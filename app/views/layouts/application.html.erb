@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header' unless current_page?(home_path) %>
 
     <%= yield %>
 

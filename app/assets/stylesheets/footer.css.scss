@@ -1,0 +1,43 @@
+.footer {
+	font-family: "lato";
+	height: 150px;
+	left:0px;
+	bottom:0px;
+	width: 100%;
+}
+
+.footer a {
+	text-decoration: none;
+	padding:3px 5px 1px 5px;
+	font-size:18px;
+}
+.footer a:hover {
+	padding:3px 5px 1px 5px;
+	text-decoration: none;
+	color:white;
+}
+#footer-menu {
+	padding: 10px 0px 10px 50px;
+
+}
+
+#copyright-footer {
+	font-family: "lato";
+	text-align: center;
+	/*padding: 10px;*/
+}
+
+
+.socialIcons {
+	padding: 30px 0px 10px 50px;
+	display: inline;
+}
+.socialIcons img {
+	padding-top:20px;
+	margin-left:-40px;
+	width: 30px;
+}
+.socialIcons img:hover {
+	text-decoration: none;
+	opacity: 0.7;
+}

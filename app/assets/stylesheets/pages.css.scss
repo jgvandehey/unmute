@@ -1,3 +1,21 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input:focus, textarea:focus {
+    outline: none;
+}
+textarea {
+	resize: none;
+	overflow: hidden;
+}
+.errors {
+	font-family: "lato";
+	color:white;
+	font-weight:bolder;
+	font-size: 22px;
+	width: 800px;
+	margin: 0 auto;
+	padding: 10px;
+	background-color:rgba(221, 74, 56, 0.6);
+}

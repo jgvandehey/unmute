@@ -9,10 +9,11 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'delayed_job_active_record'
 gem 'devise'
 gem 'omniauth-twitter'
+gem 'omniauth'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'awesome_print', require: 'ap'
-gem 'omniauth-twitter'
+gem 'medium-editor-rails'
 
 group :production do
 	gem 'pg'

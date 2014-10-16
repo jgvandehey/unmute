@@ -1,7 +1,12 @@
 Unmute::Application.routes.draw do
-  root :to => 'pages#home'
+
+  resources :users, :posts
+
+  root :to => 'posts#index'
   get 'home' => 'pages#home'
-  match 'auth/twitter/callback', to: 'sessions#create'
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

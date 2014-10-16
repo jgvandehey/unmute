@@ -1,0 +1,96 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.write-post {
+	border:none;
+	width: 800px;
+	margin:0 auto;
+}
+#header {
+	font: 30px 'lato';
+	font-weight: bold;
+	/*border:1px solid black;*/
+	padding: 10px;
+}
+#body {
+	font: 22px 'lato';
+	/*border: 1px solid black;*/
+	padding: 10px 10px 10px 7px;
+}
+
+.post-button {
+	width: 150px;
+    background-color:black;
+    border:1px solid white;
+    border-radius: 3px;
+    color: white;
+    padding: 5px;
+    font-size:20px;
+    font-family: "lato";
+    -webkit-transition: .15s ease;
+    -moz-transition: .25s ease;
+    -ms-transition: .25s ease;
+    -o-transition: .25s ease;
+    transition: .25s ease;
+}
+.post-button:hover {
+    width: 150px;
+    background-color:white;
+    border:1px solid black;
+    border-radius: 3px;
+    color: black;
+    padding: 5px;
+    font-size:20px;
+    font-family: "lato";
+}
+.switch {
+    font-family: "lato";
+    color: #6f839a;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 1.5em;
+    border-radius: 3px;
+    padding: .125em .5em;
+    display: inline-block;
+    background-color: #3e4956;
+    font-size: 18px;
+    -webkit-transition: .15s ease;
+    -moz-transition: .15s ease;
+    -ms-transition: .15s ease;
+    -o-transition: .15s ease;
+    transition: .15s ease;
+}
+
+input[type="radio"]:checked + .switch {
+    color: #fff;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+input[type="radio"]:checked + .switch--on {
+    background-color: rgba(39, 174, 96, 0.6);
+}
+
+input[type="radio"]:checked + .switch--off {
+    background-color: rgba(221, 74, 56, 0.6);
+}
+
+.index-post {
+    border: 1px solid black;
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#index-header {
+    font: 30px 'lato';
+    font-weight: thin;
+    /*border:1px solid black;*/
+    padding: 10px;
+}
+#index-body {
+    font: 12px 'lato';
+    /*border: 1px solid black;*/
+    padding: 10px 10px 10px 7px;
+}
