@@ -1,4 +1,4 @@
-<% @posts.each do |post| if post.publish == true %>
+<% @posts.each do |post| if post.publish == false %>
 <table id="post-table">
 	<tr>
 		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer; width:160px">

@@ -10,8 +10,10 @@
 </div>
 <% end %>
 <h1><%= @user.name %></h1>
-
+<h2>Published</h2>
 <%= render @posts %>
+<h2>Drafts</h2>
+<%= render :partial => 'posts/draft' %>
 
 <% else %>
 Wouldn't you like to know
