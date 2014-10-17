@@ -1,22 +1,23 @@
-<% @posts.each do |post| %>
+<% @posts.each do |post| unless post.publish == false %>
 <table id="post-table">
 	<tr>
-		<td rowspan="3">
-			<%= link_to(image_tag post.image.url(:medium)) %>
+		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;">
+			<%= image_tag post.image.url(:medium) %>
 
-			<td id="table-title"><%= post.title %>
+			<td id="table-title" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;"><%= post.title %>
 			</td>
 			<tr>
-				<td id="table-body">	
+				<td id="table-body" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;">	
 					<%= truncate(post.body, :length => 225) %>
 				</td>
 			</tr>
 			<tr>
 				<td id="table-actions">
-					Written by Anonymous author with <%= post.user.followers_twitter %> Twitter followers
+					<strong>Anonymous -- <%= post.user.followers_twitter %> Twitter followers</strong><span class="glyphicon glyphicon-heart-empty"></span>
 				</td>
 			</tr>
 		</td>
 	</tr>
 </table>
+<% end %>
 <% end %>

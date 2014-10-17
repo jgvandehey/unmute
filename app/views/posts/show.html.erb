@@ -1,4 +1,8 @@
   <div class="write-post">
+  <% if @post.image.present? %>
+  <%= image_tag @post.image(:medium) %>
+  <% else %>
+
   	<div id="header">
   		<%= @post.title %>
   	</div>
@@ -17,3 +21,4 @@
         </div>
     </div>
 </div>
+<% end %>
