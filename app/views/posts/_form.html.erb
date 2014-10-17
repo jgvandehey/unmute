@@ -2,7 +2,7 @@
 <% if @post.errors.any? %>
 <% @post.errors.full_messages.each do |msg| %>
 <div class="errors">
-<%= msg %>
+  <%= msg %>
 </div>
 <% end %>
 
@@ -16,7 +16,9 @@
   </div>
 
 
-
+<table>
+<tr>
+<td>
   <% if @post.publish == true %>
   <% then %>
   <%= f.radio_button :publish, "0", :id=>"s1Off", :style=>"display:none;" %>
@@ -31,7 +33,17 @@
   <%= f.radio_button :publish, "1", :id=>"s1On", :style=>"display:none;" %>
   <label for="s1On" class="switch switch--on">Publish</label>
   <% end %>
+  </td>
+  <td>
+  <%= f.input :category, label: false, prompt: "Select a category", input_html: { class: 'category-selector' }, collection: [ "Animals", "Art", "Comedy", "DIY", "Family", "Food", "Music & dance", "News", "Science & tech", "Sports", "Style", "Travel", "Other"] %>
+  </td>
+  <td><%= f.input :image, label: false %>
+  </td>
+  <td>
   <%= f.button :submit, 'Done', class: "post-button" %>
+  </td>
+  </tr>
+  </table>
 </div>
 
 <% end %>

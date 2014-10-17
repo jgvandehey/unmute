@@ -1,0 +1,22 @@
+<% @posts.each do |post| %>
+<table id="post-table">
+	<tr>
+		<td rowspan="3">
+			<img src="<%= post.image %>">
+
+			<td id="table-title"><%= post.title %>
+			</td>
+			<tr>
+				<td id="table-body">	
+					<%= truncate(post.body, :length => 225) %>
+				</td>
+			</tr>
+			<tr>
+				<td id="table-actions">
+					Written by Anonymous author with <%= post.user.followers_twitter %> Twitter followers
+				</td>
+			</tr>
+		</td>
+	</tr>
+</table>
+<% end %>

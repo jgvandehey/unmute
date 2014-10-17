@@ -10,12 +10,10 @@
 #header {
 	font: 30px 'lato';
 	font-weight: bold;
-	/*border:1px solid black;*/
 	padding: 10px;
 }
 #body {
 	font: 22px 'lato';
-	/*border: 1px solid black;*/
 	padding: 10px 10px 10px 7px;
 }
 
@@ -25,9 +23,10 @@
     border:1px solid white;
     border-radius: 3px;
     color: white;
-    padding: 5px;
+    padding: 10px 5px 10px 5px;
     font-size:20px;
     font-family: "lato";
+    display: inline-block;
     -webkit-transition: .15s ease;
     -moz-transition: .25s ease;
     -ms-transition: .25s ease;
@@ -40,7 +39,7 @@
     border:1px solid black;
     border-radius: 3px;
     color: black;
-    padding: 5px;
+    padding: 10px 5px 10px 5px;
     font-size:20px;
     font-family: "lato";
 }
@@ -69,28 +68,53 @@ input[type="radio"]:checked + .switch {
 }
 
 input[type="radio"]:checked + .switch--on {
-    background-color: rgba(39, 174, 96, 0.6);
+    background-color: rgba(39, 174, 96, 0.7);
 }
 
 input[type="radio"]:checked + .switch--off {
-    background-color: rgba(221, 74, 56, 0.6);
+    background-color: rgba(221, 74, 56, 0.7);
+}
+.category-selector {
+    display: inline-block;
+    font-family: "lato";
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    background-color: rgba(245, 245, 245, 1.0);
+    border-radius: 3px;
+    height: 35px;
+    outline: none;
+    margin-left: 25px;
+    margin-top:-4px;
 }
 
-.index-post {
-    border: 1px solid black;
-    width: 800px;
+#post-table {
+    width:900px;
     margin: 0 auto;
-    padding: 10px;
 }
 
-#index-header {
-    font: 30px 'lato';
-    font-weight: thin;
-    /*border:1px solid black;*/
-    padding: 10px;
+#post-table img{
+    width:160px;
+    height:130px;
+    margin: 10px 0px 10px 0px;
 }
-#index-body {
-    font: 12px 'lato';
-    /*border: 1px solid black;*/
-    padding: 10px 10px 10px 7px;
+
+#table-title {
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 24px;
+    font-family: "lato";
+}
+#table-body {
+    padding-left: 10px;
+    font-size: 16px;
+    font-family: "lato";   
+    font-style:italic;
+}
+#table-actions {
+   padding-left: 10px;
+   padding-bottom: 10px;
+   font-size: 16px;
+   font-family: "lato";   
+   font-style:italic;   
 }

@@ -1,18 +1,7 @@
+<span style="text-align: center">
+<h2 style="font-weight:bolder">Unmute</h2>
+<h3 style="font-style:italic">What needs to be said</h3>
+</span>
 
-<% @posts.each do |post| %>
-<div class="index-post">
-<div id="index-header">
-  <%= post.title %>
-  </div>
-  <div id="index-body">
-  <%= truncate(post.body, :length => 200) %>
-  </div>
-  <!-- <%= link_to 'Show', post %>
-  <%= link_to 'Edit', edit_post_path(post) %>
-  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %> -->
-  </div>
-<% end %>
-
-<br />
-
+<%= render 'post' %>
 <%= link_to 'New Post', new_post_path %>
