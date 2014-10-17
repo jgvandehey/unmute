@@ -1,8 +1,6 @@
   <div class="write-post">
-  <% if @post.image.present? %>
-  <%= image_tag @post.image(:medium) %>
-  <% else %>
-
+  	<% if @post.image.present? %>
+  	<%= image_tag @post.image(:medium) %>
   	<div id="header">
   		<%= @post.title %>
   	</div>
@@ -12,13 +10,33 @@
   </div>
 
   <div class="row">
-    <div class="span6 offset3">
-        <div class="well">
-            <% if current_user == @post.user %>
-                <%= link_to 'Edit', edit_post_path(@post) %> |
-            <% end %>
-            <%= link_to 'Back', posts_path %>
-        </div>
-    </div>
+  	<div class="span6 offset3">
+  		<div class="well">
+  			<% if current_user == @post.user %>
+  			<%= link_to 'Edit', edit_post_path(@post) %> |
+  			<% end %>
+  			<%= link_to 'Back', posts_path %>
+  		</div>
+  	</div>
+  </div>
+  <% else %>
+
+  <div id="header">
+  	<%= @post.title %>
+  </div>
+  <div id="body">
+  	<%= simple_format(@post.body, id: 'body') %>
+  </div>
+</div>
+
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+			<% if current_user == @post.user %>
+			<%= link_to 'Edit', edit_post_path(@post) %> |
+			<% end %>
+			<%= link_to 'Back', posts_path %>
+		</div>
+	</div>
 </div>
 <% end %>
