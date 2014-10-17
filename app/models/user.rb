@@ -11,15 +11,7 @@ class User < ActiveRecord::Base
 			user.provider = auth["provider"]
 			user.uid = auth["uid"]
 			user.name = auth["info"]["nickname"]
-			# user.email = auth["info"]["email"]
-			# user.followers_twitter = auth["info"]["users"]["show"]["followers_count"]
 			user.followers_twitter = auth["extra"]["raw_info"]["followers_count"]
-			# user.uid = auth["followers_count"]
-			# user.followers_twitter = auth.info.followers.followers_count
-			# user.followers_twitter = auth['info']['extra']['raw_info']['followers_count']
-			# user.followers_twitter = auth['info']['extra']['followers_count']
-
-
 			# right way to access twitter gem from https://github.com/ahmadassaf/Twitter-Mining/blob/master/app/models/user.rb
 			# user.provider = auth["provider"]
 			# user.uid = auth["uid"]

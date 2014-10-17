@@ -1,4 +1,4 @@
-<% @posts.each do |post| unless post.publish == false %>
+<% @posts.each do |post| if post.feature == true and post.publish == true %>
 <table id="post-table">
 	<tr>
 		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer; width:160px">
