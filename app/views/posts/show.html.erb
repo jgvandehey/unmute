@@ -28,6 +28,15 @@
   	<%= simple_format(@post.body, id: 'body') %>
   </div>
 </div>
+<!-- <%= @post.category_ids %> -->
+<!-- <%= Category.find(@post.category_ids) %> -->
+<!-- <%= Category.find(@post.category_ids).map{|c| c.name} %> -->
+<%= Category.find(@post.category_ids).each do |category| %>
+<%= link_to category.name, category_url(category) %>
+s
+<% end %>
+
+
 
 <div class="row">
 	<div class="span6 offset3">

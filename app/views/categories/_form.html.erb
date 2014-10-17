@@ -1,0 +1,18 @@
+<%= simple_form_for(@category) do |f| %>
+<% if @category.errors.any? %>
+<% @categories.errors.full_messages.each do |msg| %>
+<div class="errors">
+  <%= msg %>
+</div>
+<% end %>
+
+<% end %>
+<div class="write-post">
+  <div id="header">
+    <%= f.text_field :name, placeholder: "Name", class: "write-post", :autocomplete => :off %>
+  </div>  
+  <%= f.button :submit, 'Done', class: "post-button" %>
+  
+</div>
+
+<% end %>

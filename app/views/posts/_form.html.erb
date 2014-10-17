@@ -35,7 +35,13 @@
   <% end %>
   </td>
   <td>
-  <%= f.input :category, label: false, prompt: "Category", input_html: { class: 'category-selector' }, collection: [ "Animals", "Art", "Comedy", "DIY", "Family", "Food", "Music & dance", "News", "Science & tech", "Sports", "Style", "Travel", "Other"] %>
+  <!-- <%= f.input :category, label: false, prompt: "Category", input_html: { class: 'category-selector' }, collection: [ "Animals", "Art", "Comedy", "DIY", "Family", "Food", "Music & dance", "News", "Science & tech", "Sports", "Style", "Travel", "Other"] %> -->
+  <!-- <%= f.select :category, Category.all, label: false, prompt: "Category", input_html: { class: 'category-selector' } %> -->
+   <%= hidden_field_tag "post[category_ids][]", nil%>
+    <% Category.all.each do |category| %>
+    <%= check_box_tag "post[category_ids][]", category.id, @post.category_ids.include?(category.id) %>
+    <%= category.name %><br/>
+  <% end %> 
   </td>
   <td><%= f.input :image, label: false %>
   </td>
