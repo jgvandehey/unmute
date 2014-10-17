@@ -1,10 +1,26 @@
 class UsersController < ApplicationController
-  
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per_page(20)
   end
 
+  def edit
+    @user = User.find(current_user.id)
+  end
+  def update
+    @user = User.find(current_user.id)
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to @user, notice: 'Account updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   protected
 
   def load_user  
