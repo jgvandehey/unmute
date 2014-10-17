@@ -2,7 +2,7 @@
 <table id="post-table">
 	<tr>
 		<td rowspan="3">
-			<img src="<%= post.image(:medium) %>">
+			<%= image_tag post.image.url(:medium) %>
 
 			<td id="table-title"><%= post.title %>
 			</td>
