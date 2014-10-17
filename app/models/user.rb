@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 			user.provider = auth["provider"]
 			user.uid = auth["uid"]
 			user.name = auth["info"]["nickname"]
-			user.email = auth["info"]["email"]
+			# user.email = auth["info"]["email"]
 			# user.followers_twitter = auth["info"]["users"]["show"]["followers_count"]
 			user.followers_twitter = auth["extra"]["raw_info"]["followers_count"]
 			# user.uid = auth["followers_count"]
