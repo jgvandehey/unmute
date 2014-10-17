@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
+  before_filter :redirect_if_no_user, only: [:create, :new]
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    @posts = Post.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +28,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = current_user.posts.new
+
 
     respond_to do |format|
       format.html # new.html.erb

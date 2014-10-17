@@ -1,7 +1,7 @@
 <% @posts.each do |post| unless post.publish == false %>
 <table id="post-table">
 	<tr>
-		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;">
+		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer; width:160px">
 			<%= image_tag post.image.url(:medium) %>
 
 			<td id="table-title" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;"><%= post.title %>
@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td id="table-actions">
-					<strong>Anonymous  &middot; <%= post.user.followers_twitter %> Twitter followers</strong> &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..30) %></span>
+					<strong>Anonymous  &middot; <%= post.user.followers_twitter %> Twitter followers</strong> &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..3000) %></span>
 				</td>
 			</tr>
 		</td>

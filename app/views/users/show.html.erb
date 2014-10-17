@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+
+<div id="pins">
+  <%= render @posts %>
+</div>
+
+<%= will_paginate @posts %>
