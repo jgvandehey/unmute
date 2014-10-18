@@ -1,0 +1,38 @@
+  <div class="row" style="margin-top:-22px">
+  	<div class="span6">
+  		<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black">
+  			<h1 style="font-family: lato; padding: 20px;">  			
+  				<div class="dropdown" style="margin: 0px auto 20px auto; display:inline-block">
+  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+  						<span style="font-size:32px">
+  							<%= @category.name %>
+  						</span>
+  						<span class="caret" style="margin-top:-15px;margin-left:10px"></span>
+  					</button>
+  					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/posts">All</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/1">Popular</a></li>
+  						<li role="presentation" class="divider"></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/2">Animals</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/3">Art</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/4">Comedy</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/5">Dating</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/6">Education</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/7">Family</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/8">Food</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/9">Music & Dance</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/10">News</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/11">Politics</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/12">Science & Tech</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/13">Sex</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/14">Sports</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/15">Style</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/16">Travel</a></li>
+  						<li role="presentation"><a role="menuitem" tabindex="-1" href="/categories/17">Other</a></li>
+  					<!-- <li role="presentation" class="divider"></li>
+  					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Surprise Me</a></li> -->
+  				</ul>
+  			</div> stories of <%= Date.today.to_formatted_s(:long_ordinal) %><br></h1>
+  		</div>
+  	</div>
+  </div>

@@ -14,7 +14,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    @posts = Post.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
+    # @posts = @category.posts.order("created_at DESC").paginate(:per_page => 1, :page => params[:page])
+    @posts = @category.posts
 
     respond_to do |format|
       format.html # show.html.erb

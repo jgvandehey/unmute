@@ -4,7 +4,6 @@ Unmute::Application.routes.draw do
 
   root :to => 'posts#index'
   get 'home' => 'pages#home'
-  # match "/categories" => "categories#c"
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'

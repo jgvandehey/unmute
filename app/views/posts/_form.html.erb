@@ -16,40 +16,43 @@
   </div>
 
 
-<table>
-<tr>
+  <table>
+    <tr>
+      <td>
+        <% if @post.publish == true %>
+        <% then %>
+        <%= f.radio_button :publish, "0", :id=>"s1Off", :style=>"display:none;" %>
+        <label for="s1Off" class="switch switch--off" >Draft</label>
+
+        <%= f.radio_button :publish, "1", :id=>"s1On", :style=>"display:none;", :checked => true %>
+        <label for="s1On" class="switch switch--on">Publish</label>
+        <% else %>
+        <%= f.radio_button :publish, "0", :id=>"s1Off", :style=>"display:none;", :checked => true %>
+        <label for="s1Off" class="switch switch--off" >Draft</label>
+
+        <%= f.radio_button :publish, "1", :id=>"s1On", :style=>"display:none;" %>
+        <label for="s1On" class="switch switch--on">Publish</label>
+        <% end %>
+      </td>
+      <td>
+        <!-- <%= f.input :category, label: false, prompt: "Category", input_html: { class: 'category-selector' }, collection: [ "Animals", "Art", "Comedy", "DIY", "Family", "Food", "Music & dance", "News", "Science & tech", "Sports", "Style", "Travel", "Other"] %> -->
+        <!-- <%= f.select :category, Category.all, label: false, prompt: "Category", input_html: { class: 'category-selector' } %> -->
+        <%= hidden_field_tag "post[category_ids][]", nil%>
+        <% Category.all.each do |category| %>
+        <%= check_box_tag "post[category_ids][]", category.id, @post.category_ids.include?(category.id) %>
+        <%= category.name %><br/>
+        <% end %> 
+
+  <!-- this creates a scrolling list..working code
+  <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, input_html: { class: 'category-selector' } %> -->
+</td>
+<td><%= f.input :image, label: false %>
+</td>
 <td>
-  <% if @post.publish == true %>
-  <% then %>
-  <%= f.radio_button :publish, "0", :id=>"s1Off", :style=>"display:none;" %>
-  <label for="s1Off" class="switch switch--off" >Draft</label>
-
-  <%= f.radio_button :publish, "1", :id=>"s1On", :style=>"display:none;", :checked => true %>
-  <label for="s1On" class="switch switch--on">Publish</label>
-  <% else %>
-  <%= f.radio_button :publish, "0", :id=>"s1Off", :style=>"display:none;", :checked => true %>
-  <label for="s1Off" class="switch switch--off" >Draft</label>
-
-  <%= f.radio_button :publish, "1", :id=>"s1On", :style=>"display:none;" %>
-  <label for="s1On" class="switch switch--on">Publish</label>
-  <% end %>
-  </td>
-  <td>
-  <!-- <%= f.input :category, label: false, prompt: "Category", input_html: { class: 'category-selector' }, collection: [ "Animals", "Art", "Comedy", "DIY", "Family", "Food", "Music & dance", "News", "Science & tech", "Sports", "Style", "Travel", "Other"] %> -->
-  <!-- <%= f.select :category, Category.all, label: false, prompt: "Category", input_html: { class: 'category-selector' } %> -->
-   <%= hidden_field_tag "post[category_ids][]", nil%>
-    <% Category.all.each do |category| %>
-    <%= check_box_tag "post[category_ids][]", category.id, @post.category_ids.include?(category.id) %>
-    <%= category.name %><br/>
-  <% end %> 
-  </td>
-  <td><%= f.input :image, label: false %>
-  </td>
-  <td>
   <%= f.button :submit, 'Done', class: "post-button" %>
-  </td>
-  </tr>
-  </table>
+</td>
+</tr>
+</table>
 </div>
 
 <% end %>

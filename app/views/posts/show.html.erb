@@ -28,12 +28,13 @@
   	<%= simple_format(@post.body, id: 'body') %>
   </div>
 </div>
-<!-- <%= @post.category_ids %> -->
-<!-- <%= Category.find(@post.category_ids) %> -->
-<!-- <%= Category.find(@post.category_ids).map{|c| c.name} %> -->
+<!-- this shows the category ids <%= @post.category_ids %> -->
+<!-- This shows whoel record (category id, name, created_at, etc in a bracket [] <%= Category.find(@post.category_ids) %> -->
+<!-- prints category name in [""] like ["Sex"] <%= Category.find(@post.category_ids).map{|c| c.name} %> -->
+
+<!--Sex [#<Category id: 13, name: "Sex", created_at: "2014-10-17 20:24:21", updated_at: "2014-10-17 20:24:21">]-->
 <%= Category.find(@post.category_ids).each do |category| %>
 <%= link_to category.name, category_url(category) %>
-s
 <% end %>
 
 
