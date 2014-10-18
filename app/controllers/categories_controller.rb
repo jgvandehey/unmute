@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     # @posts = @category.posts.order("created_at DESC").paginate(:per_page => 1, :page => params[:page])
-    @posts = @category.posts
+    @posts = @category.posts.reverse
 
     respond_to do |format|
       format.html # show.html.erb

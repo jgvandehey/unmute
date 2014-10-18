@@ -1,3 +1,4 @@
+<div class="profile">
 <% if current_user %>
 <% if @user.email.blank? %>
 
@@ -9,12 +10,27 @@
 	</div>
 </div>
 <% end %>
-<h1><%= @user.name %></h1>
+<div class="row" style="margin-top:-22px">
+  	<div class="span6">
+  		<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black">
+<h1>Your profile</h1>
+<h4>Nobody else can see your personal info or the articles you write. Your secrets are safe with us.</h4>
+</div>
+</div>
+</div>
+<div class="write-post">
+<h2>Liked articles</h2>
+You haven't liked any articles. Because we haven't built that yet... But it's coming soon!
+<br>
+<br>
 <h2>Published</h2>
 <%= render :partial => 'posts/post' %>
+<br>
+<br>
 <h2>Drafts</h2>
 <%= render :partial => 'posts/draft' %>
-
+</div>
 <% else %>
 Wouldn't you like to know
 <% end %>
+</div>

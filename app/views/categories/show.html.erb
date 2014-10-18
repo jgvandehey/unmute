@@ -1,9 +1,37 @@
 <%= render 'categorywell' %>
 
-<%= @category.name %>
-<%= Post.find(@category.post_ids).each do |post| %>
-<%= post.title %>
+<% @posts.each do |post| if post.publish == true %>
+<table id="post-table">
+	<tr>
+		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer; width:160px">
+			<%= image_tag post.image.url(:medium) %>
+
+			<td id="table-title" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;"><%= post.title %>
+			</td>
+			<tr>
+				<td id="table-body" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;">	
+					<%= truncate(post.body, :length => 225) %>
+				</td>
+			</tr>
+			<tr>
+				<td id="table-actions">
+					<strong>Anonymous  &middot; <%= post.user.followers_twitter %> Twitter followers</strong> &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..3000) %></span>
+					<% if current_user == post.user %>
+					<%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'You sure, bro or brodette?' } %>
+					<% end %>
+				</td>
+			</tr>
+		</td>
+	</tr>
+</table>
 <% end %>
+<% end %>
+
+<div class="write-post">
+	<form action="/posts/new">
+		<input class="new-post-button" type="submit" value="Start writing">
+	</form>
+</div>
 
 
 

@@ -37,8 +37,6 @@
 <%= link_to category.name, category_url(category) %>
 <% end %>
 
-
-
 <div class="row">
 	<div class="span6 offset3">
 		<div class="well">
@@ -46,7 +44,10 @@
 			<%= link_to 'Edit', edit_post_path(@post) %> |
 			<% end %>
 			<%= link_to 'Back', posts_path %>
-		</div>
-	</div>
+      More in <%= Category.find(@post.category_ids).each do |category| %>
+      <%= link_to category.name, category_url(category) %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <% end %>
