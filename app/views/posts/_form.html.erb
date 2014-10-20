@@ -41,18 +41,9 @@
 
         <!-- puts category records in dropdown but doesn't save -->
         <!-- <%= f.select :category_ids, Category.all, label: false, prompt: "Category", input_html: { class: 'category-selector' } %> -->
-        <% if current_user.id == 12 %>
-        <!-- admin add popular tag -->
-        <%= hidden_field_tag "post[category_ids][]", nil%>
-        <% Category.all.each do |category| %>
-        <%= check_box_tag "post[category_ids][]", category.id, @post.category_ids.include?(category.id) %>
-        <%= category.name %><br/>
-        <% end %> 
-        <% else %>
+        
 
         <%= f.association :categories, :as => :collection_select, collection: Category.where(Category.arel_table[:id].not_eq(1)), :input_html => { :class => "category-selector" }, :label => false, prompt: "Choose a category" %>
-
-        <% end %>
 
 
 
