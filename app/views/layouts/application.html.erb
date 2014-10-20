@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Unmute</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  	<!-- Latest compiled and minified CSS -->
+	<title>Unmute</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<!-- start google fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 	<!-- end google fonts -->
+
+	<!-- Start google analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-55951006-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+	<!-- End google analytics -->
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -19,13 +32,13 @@
 	<link rel="shortcut icon" href="https://s3.amazonaws.com/unmute/icon_400.png">
 </head>
 <body>
-<div class="container-fluid">
-    <%= render 'layouts/header' unless current_page?(home_path) %>
+	<div class="container-fluid">
+		<%= render 'layouts/header' unless current_page?(home_path) %>
 
-    <%= yield %>
-    <div style="padding-bottom:100px"></div>
+		<%= yield %>
+		<div style="padding-bottom:100px"></div>
 
-    <%= render 'layouts/footer' %>
-</div>
+		<%= render 'layouts/footer' %>
+	</div>
 </body>
 </html>
