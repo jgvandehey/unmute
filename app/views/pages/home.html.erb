@@ -7,13 +7,24 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Write what's in your <span class="glyphicon glyphicon-heart"></span></h1>
-                        <h3>without breaking others</h3>
+                        <!-- <h3>without breaking others</h3> -->
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="/auth/twitter" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">start writing anonymously</span></a>
-                            </li>
-                            <li>
+                                
+                            <!-- old buttons from original template
+                                <a href="/auth/twitter" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">start writing anonymously</span></a> -->
+                                <button type="button" onclick=window.location='/auth/twitter' class="more-in" style="width:300px;height:50px;font-size:18px">
+                                Start writing
+                              </button>
+                              <br>
+                              OR
+                                <br>
+                                <button type="button" onclick=window.location='/' class="more-in tweet" style="width:300px;height:50px;font-size:18px">
+                                Browse latest articles
+                              </button>
+                          </li>
+                          <li>
 <!--                                 <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                             </li>
                             <li>
@@ -112,7 +123,11 @@
                             <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                         </li> -->
                         <li>
-                            <a href="/auth/twitter" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Sign up with Twitter</span></a>
+                            <!-- original button
+                            <a href="/auth/twitter" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Sign up with Twitter</span></a> -->
+                            <button type="button" onclick=window.location='/auth/twitter' class="more-in tweet" style="width:300px;height:50px;font-size:18px">
+                                Sign up with Twitter
+                              </button>
                         </li>
 <!--                         <li>
                             <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>

@@ -25,15 +25,17 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   # GET /categories/new.json
-  def new
-    @category = Category.new
-    @user = current_user
+  
+# disabling creation of new categories for now
+#   def new
+#     @category = Category.new
+#     @user = current_user
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @category }
-    end
-  end
+#     respond_to do |format|
+#       format.html # new.html.erb
+#       format.json { render json: @category }
+#     end
+#   end
 
   # GET /categories/1/edit
   def edit
