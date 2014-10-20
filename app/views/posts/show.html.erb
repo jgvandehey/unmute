@@ -1,53 +1,71 @@
-  <div class="write-post">
-  	<% if @post.image.present? %>
-  	<%= image_tag @post.image(:medium) %>
-  	<div id="header">
-  		<%= @post.title %>
-  	</div>
-  	<div id="body">
-  		<%= simple_format(@post.body, id: 'body') %>
-  	</div>
-  </div>
+    <div class="row" style="margin-top:-22px">
+      <div class="span6">
+        <div class="well" style="text-align:left; border-radius: 0px; border-top:2px solid black">
+          <h1 style="font-family: lato;padding:20px 0px 20px 10px;" class="write-post">        
+            <%= @post.title %>
+            <h4 class='write-post' style="padding-left:10px">Found in <% Category.find(@post.category_ids).each do |c| %> <%= link_to c.name, category_url(c) %><% end %></h4>
+            <% if current_user == @post.user %>
+            <h4 class='write-post' style="padding: 10px"><%= link_to 'Edit', edit_post_path(@post) %></h4>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-  <div class="row">
-  	<div class="span6 offset3">
-  		<div class="well">
-  			<% if current_user == @post.user %>
-  			<%= link_to 'Edit', edit_post_path(@post) %> |
-  			<% end %>
-  			<%= link_to 'Back', posts_path %>
-  		</div>
-  	</div>
-  </div>
-  <% else %>
+      <div class="write-post">
+       <% if @post.image.present? %>
+       <%= image_tag @post.image(:medium) %>
+       <!-- <div id="header">
+        <%= @post.title %>
+      </div> -->
+      <div id="body">
+        <%= simple_format(@post.body, id: 'body') %>
+      </div>
+    </div>
 
-  <div id="header">
-  	<%= @post.title %>
-  </div>
-  <div id="body">
-  	<%= simple_format(@post.body, id: 'body') %>
-  </div>
+
+    <br>
+
+    <% Category.find(@post.category_ids).each do |c| %> 
+    <div class="write-post">
+      <form action="/categories/<%= c.id %>">
+        <input class="more-in" type="submit" value="More in <%= c.name %>">
+      </form>
+      <% end %>
+
+
+    </div>
+    <% else %>
+
+ <!-- <div id="header">
+   <%= @post.title %>
+ </div> -->
+ <div id="body">
+   <%= simple_format(@post.body, id: 'body') %>
+ </div>
+
+ <br>
+ <button type="button" onclick=window.location='https://twitter.com/intent/tweet?text=Just+read+an+anonymous+article+on+@unmuteapp.+Check+it+out:+unmute.co/posts/<%= @post.id %>' class="more-in tweet">
+  Tweet <%= truncate(@post.title, :length => 30) %>
+</button>
+<br>
+
+<% Category.find(@post.category_ids).each do |c| %> 
+<div class="write-post">
+  <form action="/categories/<%= c.id %>">
+    <input class="more-in" type="submit" value="More in <%= c.name %>">
+  </form>
 </div>
-<!-- this shows the category ids <%= @post.category_ids %> -->
-<!-- This shows whoel record (category id, name, created_at, etc in a bracket [] <%= Category.find(@post.category_ids) %> -->
-<!-- prints category name in [""] like ["Sex"] <%= Category.find(@post.category_ids).map{|c| c.name} %> -->
-
-<!--Sex [#<Category id: 13, name: "Sex", created_at: "2014-10-17 20:24:21", updated_at: "2014-10-17 20:24:21">]-->
-<%= Category.find(@post.category_ids).each do |category| %>
-<%= link_to category.name, category_url(category) %>
 <% end %>
 
-<div class="row">
+
+<!-- <div class="row">
 	<div class="span6 offset3">
 		<div class="well">
-			<% if current_user == @post.user %>
-			<%= link_to 'Edit', edit_post_path(@post) %> |
-			<% end %>
 			<%= link_to 'Back', posts_path %>
-      More in <%= Category.find(@post.category_ids).each do |category| %>
+      More in <% Category.find(@post.category_ids).each do |category| %>
       <%= link_to category.name, category_url(category) %>
       <% end %>
     </div>
   </div>
-</div>
+</div> -->
 <% end %>

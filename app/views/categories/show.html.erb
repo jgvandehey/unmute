@@ -27,11 +27,20 @@
 <% end %>
 <% end %>
 
+<% if @posts.count == 0 %>
+<div class="write-post">
+	<form action="/posts/new">
+		<input class="new-post-button" type="submit" value="No posts in <%= @category.name %> today. Get writin'!">
+	</form>
+</div>
+<% else %>
+
 <div class="write-post">
 	<form action="/posts/new">
 		<input class="new-post-button" type="submit" value="Start writing">
 	</form>
 </div>
+<% end %>
 
 
 

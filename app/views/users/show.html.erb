@@ -1,36 +1,43 @@
-<div class="profile">
-<% if current_user %>
-<% if @user.email.blank? %>
+	<div class="profile">
+	<% if current_user == @user %>
+	<% if @user.email.blank? %>
 
-<div class="row" style="margin-top:-22px;">
-	<div class="span6">
-		<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black; background-color:rgba(252, 248, 227, 1.0); color:rgba(138, 109, 59, 1.0); text-decoration:none">
-			<div onclick=window.location="/users/<%= current_user.id %>/edit">Complete your profile to get updates <span class="glyphicon glyphicon-cog"></span><br><a href="/users/<%= current_user.id %>/edit" style="text-decoration:underline">Complete profile</a></div>
+	<div class="row" style="margin-top:-22px;">
+		<div class="span6">
+			<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black; background-color:rgba(252, 248, 227, 1.0); color:rgba(138, 109, 59, 1.0); text-decoration:none">
+				<div onclick=window.location="/users/<%= current_user.id %>/edit">Complete your profile to get updates <span class="glyphicon glyphicon-cog"></span><br><a href="/users/<%= current_user.id %>/edit" style="text-decoration:underline">Complete profile</a></div>
+			</div>
 		</div>
 	</div>
-</div>
-<% end %>
-<div class="row" style="margin-top:-22px">
-  	<div class="span6">
-  		<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black">
-<h1>Your profile</h1>
-<h4>Nobody else can see your personal info or the articles you write. Your secrets are safe with us.</h4>
-</div>
-</div>
-</div>
-<div class="write-post">
-<h2>Liked articles</h2>
-You haven't liked any articles. Because we haven't built that yet... But it's coming soon!
-<br>
-<br>
-<h2>Published</h2>
-<%= render :partial => 'posts/post' %>
-<br>
-<br>
-<h2>Drafts</h2>
-<%= render :partial => 'posts/draft' %>
-</div>
-<% else %>
-Wouldn't you like to know
-<% end %>
-</div>
+	<% end %>
+	<div class="row" style="margin-top:-22px">
+		<div class="span6">
+			<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black">
+				<h1>Your profile</h1>
+				<h4>Nobody else can see your personal info or the articles you write. Your secrets are safe with us.</h4>
+			</div>
+		</div>
+	</div>
+	<div class="write-post">
+		<h2>Liked articles</h2>
+		You haven't liked any articles. Because we haven't built that yet... But it's coming soon!
+		<br>
+		<br>
+		<h2>Published</h2>
+		<%= render :partial => 'posts/post' %>
+		<br>
+		<br>
+		<h2>Drafts</h2>
+		<%= render :partial => 'posts/draft' %>
+	</div>
+	<% else %>
+		<div class="write-post">
+		<h2>Liked articles</h2>
+		This user has liked X posts
+		<br>
+		<br>
+		<h2>Published</h2>
+		This user has published X posts
+	</div>
+	<% end %>
+	</div>

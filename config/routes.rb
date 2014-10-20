@@ -2,7 +2,7 @@ Unmute::Application.routes.draw do
 
   resources :users, :posts, :categories
 
-  root :to => 'posts#index'
+  root :to => 'categories#show', :id => '1'
   get 'home' => 'pages#home'
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')

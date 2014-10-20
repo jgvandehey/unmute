@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     # @posts = Post.all
-    @posts = Post.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
+    # @posts = Post.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
+    @posts = Post.all.reverse
 
     respond_to do |format|
       format.html # index.html.erb

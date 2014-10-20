@@ -27,6 +27,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = Category.new
+    @user = current_user
 
     respond_to do |format|
       format.html # new.html.erb
