@@ -1,5 +1,3 @@
-<% if @user.id == 3 %>
-
 <%= simple_form_for(@category) do |f| %>
 <% if @category.errors.any? %>
 <% @categories.errors.full_messages.each do |msg| %>
@@ -7,19 +5,14 @@
   <%= msg %>
 </div>
 <% end %>
-
 <% end %>
 <div class="write-post">
   <div id="header">
     <%= f.text_field :name, placeholder: "Name", class: "write-post", :autocomplete => :off %>
+    <%= f.text_field :color, placeholder: "Color", class: "write-post", :autocomplete => :off %>
   </div>  
   <%= f.button :submit, 'Done', class: "post-button" %>
   
 </div>
 
-<% end %>
-
-<% else %>
-
-How did you get here? Go back to where it's safe
 <% end %>

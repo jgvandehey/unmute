@@ -1,13 +1,13 @@
   <div class="row" style="margin-top:-22px">
   	<div class="span6">
-  		<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black">
+  		<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black; background-color:<%= @category.color %>; color:white">
   			<h1 style="font-family: lato; padding: 20px;">  			
   				<div class="dropdown" style="margin: 0px auto 20px auto; display:inline-block">
   					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-  						<span style="font-size:32px">
+  						<span style="font-size:32px;color:<%= @category.color %>">
   							<%= @category.name %>
   						</span>
-  						<span class="caret" style="margin-top:-15px;margin-left:10px"></span>
+  						<span class="caret" style="margin-top:-15px;margin-left:10px; color:<%= @category.color %>"></span>
   					</button>
   					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
   						<li role="presentation"><a role="menuitem" tabindex="-1" href="/posts">All</a></li>
