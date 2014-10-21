@@ -35,38 +35,15 @@
         <% end %>
       </td>
       <td>
-        <!-- <%= f.input :category, label: false, prompt: "Category", input_html: { class: 'category-selector' }, collection: [ "Animals", "Art", "Comedy", "DIY", "Family", "Food", "Music & dance", "News", "Science & tech", "Sports", "Style", "Travel", "Other"] %> -->
-        <!-- <%= f.select :category, Category.all, label: false, prompt: "Category", input_html: { class: 'category-selector' } %> -->
-
-
-        <!-- puts category records in dropdown but doesn't save -->
-        <!-- <%= f.select :category_ids, Category.all, label: false, prompt: "Category", input_html: { class: 'category-selector' } %> -->
-        
-
         <%= f.association :categories, :as => :collection_select, collection: Category.where(Category.arel_table[:id].not_eq(1)), :input_html => { :class => "category-selector" }, :label => false, prompt: "Choose a category" %>
-
-
-
-        <!-- puts categories in dropdown but doesn't save to record -->
-        <!-- <%= collection_select(:category, :id, Category.all, :id, :name) %> -->
-
-        <!-- this creates a checkbox for each category..working code
-        <%= hidden_field_tag "post[category_ids][]", nil%>
-        <% Category.all.each do |category| %>
-        <%= check_box_tag "post[category_ids][]", category.id, @post.category_ids.include?(category.id) %>
-        <%= category.name %><br/>
-        <% end %>  -->
-
-  <!-- this creates a scrolling list..working code
-  <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, input_html: { class: 'category-selector' } %> -->
-</td>
-<td><%= f.input :image, label: false %>
-</td>
-<td>
-  <%= f.button :submit, 'Done', class: "post-button" %>
-</td>
-</tr>
-</table>
+      </td>
+      <td><%= f.input :image, label: false %>
+      </td>
+      <td>
+        <%= f.button :submit, 'Done', class: "post-button" %>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <% end %>
