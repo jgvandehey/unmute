@@ -20,20 +20,21 @@
       <div id="body">
         <%= simple_format(@post.body, id: 'body') %>
       </div>
-    </div>
 
 
-    <br>
+      <br>
+      <button type="button" onclick=window.location='https://twitter.com/intent/tweet?text=Just+read+an+anonymous+article+on+@unmuteapp.+Check+it+out:+unmute.co/posts/<%= @post.id %>' class="more-in tweet">
+        Tweet <%= truncate(@post.title, :length => 30) %>
+      </button>
+      <br>
 
-    <% Category.find(@post.category_ids).each do |c| %> 
-    <div class="write-post">
+      <% Category.find(@post.category_ids).each do |c| %> 
       <form action="/categories/<%= c.id %>">
         <input class="more-in" type="submit" value="More in <%= c.name %>">
       </form>
       <% end %>
-
-
     </div>
+
     <% else %>
 
  <!-- <div id="header">
