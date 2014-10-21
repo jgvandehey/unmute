@@ -73,4 +73,7 @@ config.i18n.fallbacks = true
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  # Set time zone
+  config.time_zone = "Pacific Time (US & Canada)"
 end
