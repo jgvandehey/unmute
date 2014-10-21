@@ -15,10 +15,17 @@
 			</tr>
 			<tr>
 				<td id="table-actions">
-					<strong>Anonymous author with <%= post.user.followers_twitter.round(-1) %> Twitter followers</strong> <!-- &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..3000) %></span> -->
-					<% if current_user == post.user %>
+					<strong>Anonymous author with <%= post.user.followers_twitter.round(-2) %> Twitter followers</strong> <% Category.find(post.category_ids).each do |c| %> 
+
+					<button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
+						<%= c.name %>
+					</button>
+
+
+					<% end %> <!-- &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..3000) %></span> -->
+					<!-- <% if current_user == post.user %>
 					<%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'You sure, bro or brodette?' } %>
-					<% end %>
+					<% end %> -->
 				</td>
 			</tr>
 		</td>
@@ -48,4 +55,4 @@
 <%= post.title %>
 <% end %> -->
 <!-- <%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %> -->
+	<%= link_to 'Back', categories_path %> -->

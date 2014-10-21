@@ -3,7 +3,14 @@
         <div class="well" style="text-align:left; border-radius: 0px; border-top:2px solid black">
           <h1 style="font-family: lato;padding:20px 0px 20px 10px;" class="write-post">        
             <%= @post.title %>
-            <h4 class='write-post' style="padding-left:10px">Found in <% Category.find(@post.category_ids).each do |c| %> <%= link_to c.name, category_url(c) %><% end %></h4>
+            <h4 class='write-post' style="padding-left:10px">Found in <% Category.find(@post.category_ids).each do |c| %> 
+
+            <button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
+        <%= c.name %>
+      </button>
+
+
+            <% end %></h4>
             <% if current_user == @post.user %>
             <h4 class='write-post' style="padding: 10px"><%= link_to 'Edit', edit_post_path(@post) %></h4>
             <% end %>
@@ -30,7 +37,7 @@
 
       <% Category.find(@post.category_ids).each do |c| %> 
       <form action="/categories/<%= c.id %>">
-        <input class="more-in" type="submit" value="More in <%= c.name %>">
+        <input class="more-in" type="submit" value="More in '<%= c.name %>'" style="background-color:<%= c.color %>">
       </form>
       <% end %>
     </div>
@@ -53,7 +60,7 @@
 <% Category.find(@post.category_ids).each do |c| %> 
 <div class="write-post">
   <form action="/categories/<%= c.id %>">
-    <input class="more-in" type="submit" value="More in <%= c.name %>">
+    <input class="more-in" type="submit" value="More in '<%= c.name %>'" style="background-color:<%= c.color %>">
   </form>
 </div>
 <% end %>
