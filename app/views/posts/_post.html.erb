@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td id="table-actions">
-					<strong>Anonymous author with <%= post.user.followers_twitter.round(-1) %> Twitter followers</strong> <% Category.find(post.category_ids).each do |c| %> 
+					<strong>Anonymous author with <%= post.user.followers_twitter.round(-2) %> Twitter followers</strong> <% Category.find(post.category_ids).each do |c| %> 
 
 					<button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
 						<%= c.name %>

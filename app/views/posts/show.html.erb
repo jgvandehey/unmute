@@ -2,25 +2,25 @@
       <div class="span6">
         <div class="well" style="text-align:left; border-radius: 0px; border-top:2px solid black">
           <h1 style="font-family: lato;padding:20px 0px 20px 10px;" class="write-post">        
-            <%= @post.title %>
+            <%= @post.title %> <% if @post.publish == false %> [DRAFT] <% end %>
             <h4 class='write-post' style="padding-left:10px">Found in <% Category.find(@post.category_ids).each do |c| %> 
 
-            <button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
-        <%= c.name %>
-      </button>
+              <button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
+                <%= c.name %>
+              </button>
 
 
-            <% end %></h4>
-            <% if current_user == @post.user %>
-            <h4 class='write-post' style="padding: 10px"><%= link_to 'Edit', edit_post_path(@post) %></h4>
-            <% end %>
+              <% end %></h4>
+              <% if current_user == @post.user %>
+              <h4 class='write-post' style="padding: 10px"><%= link_to 'Edit', edit_post_path(@post) %></h4>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="write-post">
-       <% if @post.image.present? %>
-       <%= image_tag @post.image(:medium) %>
+        <div class="write-post">
+         <% if @post.image.present? %>
+         <%= image_tag @post.image(:medium) %>
        <!-- <div id="header">
         <%= @post.title %>
       </div> -->

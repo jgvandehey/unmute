@@ -9,12 +9,13 @@
 <% end %>
 <div class="write-post">
   <div id="header">
+  <div class="editable">
     <%= f.text_field :title, placeholder: "Title", class: "write-post", :autocomplete => :off %>
+    </div>
   </div>
   <div id="body">
     <%= f.text_area :body, placeholder: "This thing isn't going to write itself", class: "write-post", :id => "body", :autocomplete => :off, :cols => "30" %>
   </div>
-
 
   <table>
     <tr>
@@ -35,7 +36,7 @@
         <% end %>
       </td>
       <td>
-        <%= f.association :categories, :as => :collection_select, collection: Category.where(Category.arel_table[:id].not_eq(1)), :input_html => { :class => "category-selector" }, :label => false, prompt: "Choose a category" %>
+         <%= f.association :categories, :as => :collection_select, collection: Category.where(Category.arel_table[:id].not_eq(1)), :input_html => { :class => "category-selector" }, :label => false, prompt: "Category" %> 
       </td>
       <td><%= f.input :image, label: false %>
       </td>
