@@ -9,9 +9,9 @@
             <%= c.name %>
           </button>
           <% end %>
-           | <%= pluralize @post.reputation_for(:votes).to_i, "" %><img src="https://s3.amazonaws.com/unmute/favorite_200.png" id="header-heart">
+              <span style="padding-left:20px"></span><%= pluralize @post.reputation_for(:votes).to_i, "" %>  <img src="https://s3.amazonaws.com/unmute/favorite_200.png" id="header-heart" style="margin-left:2px">
             <% if @post.reputation_for(:votes) == 1 %>
-          voted
+          
            <% else %>
           <%= button_to "favorite", vote_post_path(@post, type: "up"), method: "post", class: "header-favorite-button" %>
           <% end %>
