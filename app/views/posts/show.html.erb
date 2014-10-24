@@ -9,12 +9,12 @@
             <%= c.name %>
           </button>
           <% end %>
-              <span style="padding-left:20px"></span><%= pluralize @post.reputation_for(:votes).to_i, "" %>  <img src="https://s3.amazonaws.com/unmute/favorite_200.png" id="header-heart" style="margin-left:2px">
-            <% if @post.reputation_for(:votes) == 1 %>
-          
-           <% else %>
+          <span style="padding-left:10px"></span><%= pluralize @post.reputation_for(:votes).to_i, "" %>  <img src="https://s3.amazonaws.com/unmute/favorite_200.png" id="header-heart" style="margin-left:2px">
+          <!-- <% if current_user && !current_user.voted_for?(@post) %>
           <%= button_to "favorite", vote_post_path(@post, type: "up"), method: "post", class: "header-favorite-button" %>
-          <% end %>
+          <% else %>
+          
+          <% end %> -->
         </h4>
         <%= content_tag(:p, notice,  class: 'favorite-notice' ) if notice  %>
       </div>
@@ -28,11 +28,17 @@
    <div id="body">
      <%= simple_format(@post.body, id: 'body') %>
    </div>
-
-   <br>
-   <button type="button" onclick=window.location='https://twitter.com/intent/tweet?text=Just+read+an+anonymous+article+on+@unmuteapp.+Check+it+out:+unmute.co/posts/<%= @post.id %>' class="more-in tweet">
-    Tweet <%= truncate(@post.title, :length => 30) %>
-  </button>
+   
+   <div class="row" style="margin-bottom: -10px">
+     <div class="col-lg-6">
+      <%= button_to "Add to Favorites", vote_post_path(@post, type: "up"), method: "post", class: "bottom-favorite-button" %>
+    </div>
+    <div class="col-lg-6">
+      <button type="button" onclick=window.location='https://twitter.com/intent/tweet?text=Just+read+an+anonymous+article+on+@unmuteapp.+Check+it+out:+unmute.co/posts/<%= @post.id %>' class="more-in tweet">
+      Tweet article
+      </button>
+    </div>
+  </div>   
   <br>
 
   <% Category.find(@post.category_ids).each do |c| %> 
