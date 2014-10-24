@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
 	def voted_for?(post)
 		evaluations.exists?(target_type: post.class, target_id: post.id)
-	end 
+	end
 
 	def self.from_omniauth(auth)
 		where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
