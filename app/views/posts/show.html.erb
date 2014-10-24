@@ -1,79 +1,44 @@
-    <div class="row" style="margin-top:-22px">
-      <div class="span6">
-        <div class="well" style="text-align:left; border-radius: 0px; border-top:2px solid black">
-          <h1 style="font-family: lato;padding:20px 0px 20px 10px;" class="write-post">        
-            <%= @post.title %> <% if @post.publish == false %> [DRAFT] <% end %>
-            <h4 class='write-post' style="padding-left:10px">Found in <% Category.find(@post.category_ids).each do |c| %> 
-
-              <button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
-                <%= c.name %>
-              </button>
-
-
-              <% end %></h4>
-              <% if current_user == @post.user %>
-              <h4 class='write-post' style="padding: 10px"><%= link_to 'Edit', edit_post_path(@post) %></h4>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="write-post">
-         <% if @post.image.present? %>
-         <%= image_tag @post.image(:medium) %>
-       <!-- <div id="header">
-        <%= @post.title %>
-      </div> -->
-      <div id="body">
-        <%= simple_format(@post.body, id: 'body') %>
+    
+<div class="row" style="margin-top:-22px">
+  <div class="span6">
+    <div class="well" style="text-align:left; border-radius: 0px; border-top:2px solid black">
+      <h1 style="font-family: lato;padding:20px 0px 20px 10px;" class="write-post">        
+        <%= @post.title %> <% if @post.publish == false %> [DRAFT] <% end %>
+        <h4 class='write-post' style="padding-left:10px">Found in <% Category.find(@post.category_ids).each do |c| %> 
+          <button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
+            <%= c.name %>
+          </button>
+          <% end %>
+           | <%= pluralize @post.reputation_for(:votes).to_i, "" %><img src="https://s3.amazonaws.com/unmute/favorite_200.png" id="header-heart">
+           <% if current_user.voted_for?(@post).present? %>
+           already voted
+           <% else %>
+          <%= button_to "favorite", vote_post_path(@post, type: "up"), method: "post", class: "header-favorite-button" %>
+          <% end %>
+        </h4>
+        <%= content_tag(:p, notice,  class: 'favorite-notice' ) if notice  %>
       </div>
-
-
-      <br>
-      <button type="button" onclick=window.location='https://twitter.com/intent/tweet?text=Just+read+an+anonymous+article+on+@unmuteapp.+Check+it+out:+unmute.co/posts/<%= @post.id %>' class="more-in tweet">
-        Tweet <%= truncate(@post.title, :length => 30) %>
-      </button>
-      <br>
-
-      <% Category.find(@post.category_ids).each do |c| %> 
-      <form action="/categories/<%= c.id %>">
-        <input class="more-in" type="submit" value="More in '<%= c.name %>'" style="background-color:<%= c.color %>">
-      </form>
-      <% end %>
-    </div>
-
-    <% else %>
-
- <!-- <div id="header">
-   <%= @post.title %>
- </div> -->
- <div id="body">
-   <%= simple_format(@post.body, id: 'body') %>
- </div>
-
- <br>
- <button type="button" onclick=window.location='https://twitter.com/intent/tweet?text=Just+read+an+anonymous+article+on+@unmuteapp.+Check+it+out:+unmute.co/posts/<%= @post.id %>' class="more-in tweet">
-  Tweet <%= truncate(@post.title, :length => 30) %>
-</button>
-<br>
-
-<% Category.find(@post.category_ids).each do |c| %> 
-<div class="write-post">
-  <form action="/categories/<%= c.id %>">
-    <input class="more-in" type="submit" value="More in '<%= c.name %>'" style="background-color:<%= c.color %>">
-  </form>
-</div>
-<% end %>
-
-
-<!-- <div class="row">
-	<div class="span6 offset3">
-		<div class="well">
-			<%= link_to 'Back', posts_path %>
-      More in <% Category.find(@post.category_ids).each do |category| %>
-      <%= link_to category.name, category_url(category) %>
-      <% end %>
     </div>
   </div>
-</div> -->
-<% end %>
+
+  <div class="write-post">
+   <% if @post.image.present? %>
+   <%= image_tag @post.image(:medium) %>
+   <% end %>
+   <div id="body">
+     <%= simple_format(@post.body, id: 'body') %>
+   </div>
+
+   <br>
+   <button type="button" onclick=window.location='https://twitter.com/intent/tweet?text=Just+read+an+anonymous+article+on+@unmuteapp.+Check+it+out:+unmute.co/posts/<%= @post.id %>' class="more-in tweet">
+    Tweet <%= truncate(@post.title, :length => 30) %>
+  </button>
+  <br>
+
+  <% Category.find(@post.category_ids).each do |c| %> 
+  <div class="write-post">
+    <form action="/categories/<%= c.id %>">
+      <input class="more-in" type="submit" value="More in '<%= c.name %>'" style="background-color:<%= c.color %>">
+    </form>
+  </div>
+  <% end %>

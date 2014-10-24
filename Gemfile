@@ -14,6 +14,7 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'awesome_print', require: 'ap'
 gem 'medium-editor-rails'
+gem 'activerecord-reputation-system', require: 'reputation_system'
 
 group :production do
 	gem 'pg'

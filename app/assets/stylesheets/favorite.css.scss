@@ -1,0 +1,74 @@
+.favorite-notice {
+    font-family: "lato";
+    color:white;
+    font-weight:bolder;
+    font-size: 22px;
+    width: 800px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color:rgba(104, 191, 96, 0.7);
+}
+
+#header-heart {
+    width: 30px;
+    height: auto;
+    margin-top: -5px;
+}
+
+.header-favorite-button {
+    font-family: "lato";
+    font-weight: lighter;
+    display: inline-block;
+    color:white;
+    padding: 10px 15px;
+    border:none;
+    /*border: 1px solid black;*/
+    border-radius:50px;
+}
+
+
+/*http://css-tricks.com/examples/ShapesOfCSS/*/
+
+/*#heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+}
+#heart:before,
+#heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    border:1px solid black;
+    background: red;
+    -moz-border-radius: 50px 50px 0 0;
+    border-radius: 50px 50px 0 0;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+         -o-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+}
+#heart:after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+       -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+         -o-transform-origin: 100% 100%;
+            transform-origin :100% 100%;
+}
+*/
+

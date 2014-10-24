@@ -15,19 +15,21 @@
 			<div class="well" style="text-align:center; border-radius: 0px; border-top:2px solid black">
 				<h1>Your profile</h1>
 				<h4>Nobody else can see your personal info or the articles you write. Your secrets are safe with us.</h4>
+				<h4><%= current_user.reputation_for(:votes).to_i %> readers have favorited your posts</h4>
 			</div>
 		</div>
 	</div>
 	<div class="write-post">
-		<h2>Liked articles</h2>
-		You haven't liked any articles. Because we haven't built that yet... But it's coming soon!
+		<h2>Your favorites (<%= Post.evaluated_by(:votes, @user).count %>)</h2>
+		<!-- You haven't liked any articles. Because we haven't built that yet... But it's coming soon! -->
+		<%= render :partial => 'posts/like' %>
 		<br>
 		<br>
-		<h2>Published</h2>
+		<h2>Published (<%= @posts.select {|r| r.publish == true}.size %>)</h2>
 		<%= render :partial => 'posts/post' %>
 		<br>
 		<br>
-		<h2>Drafts</h2>
+		<h2>Drafts (<%= @posts.select {|r| r.publish == false}.size %>)</h2>
 		<%= render :partial => 'posts/draft' %>
 	</div>
 	<% else %>

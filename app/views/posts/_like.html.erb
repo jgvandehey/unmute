@@ -1,4 +1,4 @@
-<% @posts.each do |post| if post.publish == true %>
+<% Post.evaluated_by(:votes, @user).each do |post| %>
 <table id="post-table">
 	<tr>
 		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer; width:160px">
@@ -28,5 +28,4 @@
 		</td>
 	</tr>
 </table>
-<% end %>
 <% end %>

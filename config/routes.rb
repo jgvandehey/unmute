@@ -1,6 +1,11 @@
 Unmute::Application.routes.draw do
 
-  resources :users, :posts, :categories
+  resources :users
+  resources :categories
+  resources :posts do 
+    member { post :vote }
+  end
+
 
   root :to => 'categories#show', :id => '1'
   get 'home' => 'pages#home'

@@ -6,7 +6,12 @@ class PostsController < ApplicationController
   def index
     # @posts = Post.all
     # @posts = Post.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
+    
+    # sorting by latest
     @posts = Post.all.reverse
+
+    # sort be most votes
+    # @posts = Post.find_with_reputation(:votes, :all, order: 'votes desc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,6 +28,13 @@ class PostsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @post }
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : 0
+    @post = Post.find(params[:id])
+    @post.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "This post will be added to your favorites"
   end
 
   # GET /posts/new
