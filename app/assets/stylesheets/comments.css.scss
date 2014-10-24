@@ -1,0 +1,64 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.comment {
+    border:none;
+    width: 800px;
+    margin:0 auto;
+    overflow:hidden;
+    font-family: "lato";
+}
+#comment-body {
+    font: 30px 'lato';
+    font-weight: bold;
+    padding: 10px;
+}
+#comment-button {
+	margin-top: -20px;
+	width: 100%;
+	font-family: "lato";
+	font-size: 40px;
+	padding: 10px;
+	border-radius: 100px;
+}
+#posted-comment {
+    font-size: 30px;
+    font-family: "lato";
+    margin-top: 0px;
+    line-height: 1.2em;
+    text-align: center;
+    padding: 0px 0px 20px 0px;
+    color: #ccc;
+}
+.posted-comments {
+    margin-top: 50px;
+}
+.posted-comments h3 {
+    text-align: center;
+}
+.posted-comments h4 {
+    margin-top: -10px;
+    font-size: 14px;
+    text-align: center
+}
+.divider{
+    color:#ccc;
+    width:70%;
+    margin:20px auto;
+    overflow:hidden;
+    text-align:center;   
+    line-height:1.2em;
+}
+
+.divider:before, .divider:after{
+    content:"";
+    vertical-align:top;
+    display:inline-block;
+    width:50%;
+    height:0.65em;
+    border-bottom:1px solid #ccc;
+    margin:0 2% 0 -55%;
+}
+.divider:after{
+    margin:0 -55% 0 2%;
+}

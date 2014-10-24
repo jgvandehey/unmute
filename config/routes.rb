@@ -1,9 +1,14 @@
 Unmute::Application.routes.draw do
 
-  resources :users
+  resources :users do
+    resources :comments
+  end
+  
   resources :categories
+
   resources :posts do 
     member { post :vote }
+    resources :comments
   end
 
 

@@ -9,4 +9,5 @@ class Post < ActiveRecord::Base
 	has_many :categories, :through => :categorizations
 	has_many :evaluations, class_name: "RSEvaluation", as: :source
 	has_reputation :votes, source: :user, aggregated_by: :sum
+	has_many :comments, as: :commentable
 end

@@ -1,0 +1,9 @@
+
+<div class="posted-comments">
+<h3> Here's what people had to say about "<%= @post.title %>" (<%= @comments.count %>)</h3>
+	<% @comments.each do |comment| %>
+	<div class="divider"><img src="https://s3.amazonaws.com/unmute/icon_400.png" style="width: 30px; height: 30px;margin-top: -5px; border-radius: 50%;"></div>
+	<%= simple_format comment.content, :id => 'posted-comment' %>
+	<h4>Anonymous | <%= time_ago_in_words(comment.created_at) %> ago</h4>
+	<% end %>
+</div>
