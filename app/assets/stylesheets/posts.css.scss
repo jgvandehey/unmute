@@ -8,10 +8,11 @@
 	margin:0 auto;
     overflow:hidden;
     font-family: "lato";
+    height: 100%;
 }
 .write-post img {
     width: 800px;
-    height: 400px;
+    height:auto;
 }
 #header {
 	font: 30px 'lato';
@@ -21,7 +22,8 @@
 #body {
 	font: 22px 'lato';
 	padding: 10px 10px 10px 7px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .post-button {

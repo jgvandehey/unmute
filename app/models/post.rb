@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true
 	belongs_to :user
 	validates :user_id, presence: true
-	has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => "https://s3.amazonaws.com/unmute/icon_400.png"  
+	has_attached_file :image, :styles => { :header => "800x400#", :medium => "300x300#", :thumb => "100x100#" }, :default_url => "https://s3.amazonaws.com/unmute/icon_400.png"  
 	has_many :categorizations
 	has_many :categories, :through => :categorizations
 	has_many :evaluations, class_name: "RSEvaluation", as: :source

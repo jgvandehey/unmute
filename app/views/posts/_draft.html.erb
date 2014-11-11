@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td id="table-actions">
-					<strong>Anonymous author with <%= post.user.followers_twitter.round(-1) %> Twitter followers</strong> <!-- &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..3000) %></span> -->
+					<strong>Anonymous author &mdash; <% if post.user.followers_twitter.between?(0,1000) %> about 500 <% else %>about <%= number_with_delimiter(post.user.followers_twitter.round(-3), :delimiter => ',') %><% end %> followers</strong> <!-- &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..3000) %></span> -->
 					<% if current_user == post.user %>
 					<%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'You sure, bro or brodette?' } %>
 					<% end %>

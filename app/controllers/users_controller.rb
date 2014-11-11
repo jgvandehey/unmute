@@ -22,6 +22,11 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  # def round_followers
+  #   @user.followers_twitter.between?(0,1000)
+  # end
+
   protected
 
   def load_user  

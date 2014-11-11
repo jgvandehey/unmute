@@ -23,7 +23,7 @@
 
   <div class="write-post">
    <% if @post.image.present? %>
-   <%= image_tag @post.image(:medium) %>
+   <%= image_tag @post.image(:header) %>
    <% end %>
    <div id="body">
      <%= simple_format(@post.body, id: 'body') %>

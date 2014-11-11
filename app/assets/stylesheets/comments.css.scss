@@ -22,7 +22,7 @@
 	border-radius: 100px;
 }
 #posted-comment {
-    font-size: 30px;
+    font-size: 20px;
     font-family: "lato";
     margin-top: 0px;
     line-height: 1.2em;
@@ -41,6 +41,8 @@
     font-size: 14px;
     text-align: center
 }
+
+/*http://stackoverflow.com/questions/23584120/create-a-line-separator-using-only-css*/
 .divider{
     color:#ccc;
     width:70%;
