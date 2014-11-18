@@ -14,6 +14,7 @@ Unmute::Application.routes.draw do
 
   root :to => 'categories#show', :id => '1'
   get 'home' => 'pages#home'
+  get 'about' => 'pages#about'
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'

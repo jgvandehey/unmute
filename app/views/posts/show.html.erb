@@ -2,26 +2,27 @@
 <div class="row" style="margin-top:-22px">
   <div class="span6">
     <div class="well" style="text-align:left; border-radius: 0px; border-top:2px solid black">
-      <h1 style="font-family: lato;padding:20px 0px 20px 10px;" class="write-post">        
-        <%= @post.title %> <% if @post.publish == false %> [DRAFT] <% end %>
-        <h4 class='write-post' style="padding-left:10px">Found in <% Category.find(@post.category_ids).each do |c| %> 
-          <button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
-            <%= c.name %>
-          </button>
-          <% end %>
-          <span style="padding-left:10px"></span><%= pluralize @post.reputation_for(:votes).to_i, "" %>  <img src="https://s3.amazonaws.com/unmute/favorite_200.png" id="header-heart" style="margin-left:2px">
+          <h1 style="font-family: lato;padding:20px 0px 20px 10px;" class="show-post"> 
+            <%= @post.title %> <% if @post.publish == false %> [DRAFT] <% end %>
+            <h4 class='show-post' style="padding-left:10px">Found in <% Category.find(@post.category_ids).each do |c| %> 
+              <button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
+                <%= c.name %>
+              </button>
+              <% end %>
+              <span style="padding-left:10px"></span><%= pluralize @post.reputation_for(:votes).to_i, "" %>  <img src="https://s3.amazonaws.com/unmute/favorite_200.png" id="header-heart" style="margin-left:2px">
           <!-- <% if current_user && !current_user.voted_for?(@post) %>
           <%= button_to "favorite", vote_post_path(@post, type: "up"), method: "post", class: "header-favorite-button" %>
           <% else %>
           
           <% end %> -->
+          <%= content_tag(:p, notice,  class: 'favorite-notice' ) if notice  %>
         </h4>
-        <%= content_tag(:p, notice,  class: 'favorite-notice' ) if notice  %>
       </div>
     </div>
   </div>
-
-  <div class="write-post">
+<div class="row">
+<div class="col-lg-12">
+  <div class="show-post">
    <% if @post.image.present? %>
    <%= image_tag @post.image(:header) %>
    <% end %>
@@ -39,17 +40,20 @@
       </button>
     </div>
   </div>   
+
   <br>
 
   <% Category.find(@post.category_ids).each do |c| %> 
-  <div class="write-post">
+  <div class="show-post">
     <form action="/categories/<%= c.id %>">
       <input class="more-in" type="submit" value="More in '<%= c.name %>'" style="background-color:<%= c.color %>">
     </form>
   </div>
   <% end %>
 
-<br>
-<br>
+  <br>
+  <br>
   <%= render :partial => "comments/form" %>
   <%= render :partial => "comments/comments" %>
+  </div>
+  </div>

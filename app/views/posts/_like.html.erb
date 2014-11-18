@@ -1,4 +1,7 @@
-<% Post.evaluated_by(:votes, @user).each do |post| %>
+<% Post.evaluated_by(:votes, @user).sort.reverse { |a,b| a.created_at <=> b.created_at }.each do |post| %>
+<!-- Used this to order: http://stackoverflow.com/questions/11875174/rails-ordering-from-within-a-view -->
+
+
 <table id="post-table">
 	<tr>
 		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer; width:160px">
@@ -13,7 +16,7 @@
 			</tr>
 			<tr>
 				<td id="table-actions">
-					<strong>Anonymous author &mdash; <% if post.user.followers_twitter.between?(0,1000) %> about 500 <% else %>about <%= number_with_delimiter(post.user.followers_twitter.round(-3), :delimiter => ',') %><% end %> followers</strong> <% Category.find(post.category_ids).each do |c| %> 
+					<strong>Anonymous author &mdash; <% if post.user.followers_twitter.between?(0,1000) %> 500ish <% else %> <%= number_with_delimiter(post.user.followers_twitter.round(-3), :delimiter => ',') %>ish<% end %> followers</strong> <% Category.find(post.category_ids).each do |c| %> 
 
 					<button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
 						<%= c.name %>

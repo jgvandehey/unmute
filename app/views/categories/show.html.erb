@@ -1,28 +1,30 @@
 <%= render 'categorywell' %>
+<div class="row">
+<div class="col-lg-12">
 
-<% @posts.each do |post| if post.publish == true %>
-<table id="post-table">
-	<tr>
-		<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer; width:160px">
-			<%= image_tag post.image.url(:medium) %>
-
-			<td id="table-title" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;"><%= post.title %>
-			</td>
+		<% @posts.each do |post| if post.publish == true %>
+		<table id="post-table">
 			<tr>
-				<td id="table-body" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;">	
-					<%= truncate(post.body, :length => 225) %>
-				</td>
-			</tr>
-			<tr>
-				<td id="table-actions">
-					<strong>Anonymous author &mdash; <% if post.user.followers_twitter.between?(0,1000) %> about 500 <% else %>about <%= number_with_delimiter(post.user.followers_twitter.round(-3), :delimiter => ',') %><% end %> followers</strong> <% Category.find(post.category_ids).each do |c| %> 
+				<td rowspan="3" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer; width:160px">
+					<%= image_tag post.image.url(:medium) %>
 
-					<button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
-						<%= c.name %>
-					</button>
+					<td id="table-title" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;"><%= post.title %>
+					</td>
+					<tr>
+						<td id="table-body" onclick=window.location='/posts/<%= post.id %>' style="cursor: pointer;">	
+							<%= truncate(post.body, :length => 225) %>
+						</td>
+					</tr>
+					<tr>
+						<td id="table-actions">
+							<strong>Anonymous author &mdash; <% if post.user.followers_twitter.between?(0,1000) %> 500ish <% else %> <%= number_with_delimiter(post.user.followers_twitter.round(-3), :delimiter => ',') %>ish<% end %> followers</strong> <% Category.find(post.category_ids).each do |c| %> 
+
+							<button type="button" onclick=window.location='/categories/<%= c.id %>' class="header-category" style="background-color:<%= c.color %>">
+								<%= c.name %>
+							</button>
 
 
-					<% end %> <!-- &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..3000) %></span> -->
+							<% end %> <!-- &middot; <span class="glyphicon glyphicon-heart-empty"><%= Random.new.rand(5..3000) %></span> -->
 					<!-- <% if current_user == post.user %>
 					<%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'You sure, bro or brodette?' } %>
 					<% end %> -->
@@ -50,7 +52,8 @@
 <% end %>
 
 
-
+</div>
+</div>
 <!--<%= Post.find(@category.post_ids).each do |post| %>
 <%= post.title %>
 <% end %> -->
